@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 //stateful widgets will have two classes. second class starts with underscore which is private and only usable to the file it is in.
 
@@ -13,11 +14,12 @@ class DiceRoller extends StatefulWidget {
 }
 
 class _DiceRollerState extends State<DiceRoller> {
-  var activeDiceImage = 'assets/images/dice-6.png';
+  var currentlDiceRoll = 6;
 
   void rollDice() {
     setState(() {
-      activeDiceImage = 'assets/images/dice-2.png';
+      currentlDiceRoll =Random().nextInt(7) + 1;
+      
     });
   }
 
@@ -27,7 +29,7 @@ class _DiceRollerState extends State<DiceRoller> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset(
-          activeDiceImage,
+          'assets/images/dice-$currentlDiceRoll.png',
           width: 200,
         ),
         TextButton(
