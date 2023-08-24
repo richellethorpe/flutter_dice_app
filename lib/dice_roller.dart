@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-
+ final randomizer = Random();
 //stateful widgets will have two classes. second class starts with underscore which is private and only usable to the file it is in.
 
 class DiceRoller extends StatefulWidget {
@@ -9,6 +9,7 @@ class DiceRoller extends StatefulWidget {
   @override
   //State is a generic value type so we add brackets to tell it what state object will be managed and returned.
   State<DiceRoller> createState() {
+   
     return _DiceRollerState();
   }
 }
@@ -18,7 +19,7 @@ class _DiceRollerState extends State<DiceRoller> {
 
   void rollDice() {
     setState(() {
-      currentlDiceRoll =Random().nextInt(7) + 1;
+      currentlDiceRoll =randomizer.nextInt(6) + 1;
       
     });
   }
